@@ -214,8 +214,8 @@ def build_memory_guidance(
         "for the task (skill_manage), where it loads only when relevant. "
         if skill_manage_available else
         "Task-specific knowledge — procedures, pitfalls, and the user's preferences "
-        "and corrections for that kind of work — belongs in skills, not in memory, "
-        "even when skill writing is unavailable. "
+        "and corrections for that kind of work — belongs in responsibility packages "
+        "or connection manuals, not in memory. "
     )
     return frame + skill_routing + (
         "Memory is the narrow exception for facts that apply to EVERY "
@@ -227,7 +227,9 @@ def build_memory_guidance(
         "'Always respond concisely' ✗ (imperative phrasing gets re-read as "
         "a directive in later sessions and can override the user's current "
         "request). A fact stale within a week belongs in session history; "
-        "procedures and workflows belong in skills."
+    ) + (
+        "procedures and workflows belong in skills." if skill_manage_available else
+        "procedures and workflows belong in responsibility packages or connection manuals."
     )
 
 
@@ -636,11 +638,10 @@ _MEDIA_NATIVE = (
 )
 
 _LOCAL_CRON_DELIVERY_NOTE = (
-    "Cron jobs scheduled from this session are LOCAL-ONLY: their output is saved (viewable via cronjob "
-    "action='list') but is NOT delivered back into this session — there is no live-delivery channel here. If "
-    "the user wants to be notified when a job runs, the job's `deliver` must target a gateway-connected "
-    "messaging platform (e.g. deliver='telegram' or 'all'). Do not promise that a deliver='origin' or "
-    "default-deliver cron job will message them in this session."
+    "This session has no live-delivery channel for scheduled reports. For work that must continue later, "
+    "author a schedule in a responsibility package using its authoring guide. Set `report` to an exact "
+    "connected messaging target, or `muted` to keep the result in the run history. "
+    "Do not promise that a scheduled run will message the user in this terminal session."
 )
 
 PLATFORM_HINTS = {

@@ -78,3 +78,11 @@ def test_dispatched_child_prompt_matches_depth_capability(
         else:
             assert "children can themselves delegate because depth remains" in prompt
             assert "orchestrators or leaves" not in prompt
+
+
+def test_delegation_routes_durable_work_to_responsibilities():
+    schema = registry.get_definitions({"delegate_task"})[0]["function"]
+    description = schema["description"]
+    durable_guidance = next(line for line in description.splitlines() if "Durable work" in line)
+    assert "cronjob" not in durable_guidance
+    assert "responsibility" in durable_guidance

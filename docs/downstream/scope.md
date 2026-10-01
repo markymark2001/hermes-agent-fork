@@ -7,7 +7,7 @@ the explicit differences below.
 
 | Area | Decision and reason | Where / boundary |
 | --- | --- | --- |
-| Main prompt | Native baseline with guide/connection/file-keeping pointers and the unchanged full responsibility section in the skills-index slot. Native memory guidance stays; no added Hindsight paragraph. | `agent/system_prompt.py`; `employee_prompt.py` supplies knowledge pointers and the responsibility roster. Native identity/SOUL, task guidance and environment context remain. |
+| Main prompt | Native baseline with guide/connection/file-keeping pointers and the unchanged full responsibility section in the skills-index slot. Native memory scope stays; task-knowledge and scheduling instructions point to responsibilities/manuals instead of excluded skills/cronjob. No added Hindsight paragraph. | `agent/system_prompt.py`; `employee_prompt.py` supplies knowledge pointers and the responsibility roster. Native identity/SOUL, task guidance and environment context remain. |
 | Model tools | Keep the selected employee surface; avoid paying for unwanted tools. Configured MCP tools remain eligible. | `agent/employee_policy.py`, `model_tools.py`, `toolsets.py`. This is a model-tool filter, not a ban on native administrator commands. |
 | Skills | Disabled in agent loading, invocation, sync and curator. | Small gates in native skill owners. Native implementation retained for upstream merges. |
 | Responsibilities | Keep charters, state, references, scripts, archives and discovery. Consolidate schedules and webhooks into this one divergence area. | `responsibilities/`; native cron and webhook integration. Native administration remains, with file-owned jobs protected against conflicting edits. |

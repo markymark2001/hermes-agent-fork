@@ -120,6 +120,10 @@ def test_memory_guidance_respects_available_writes(stores, names, monkeypatch, t
     enabled = "memory" in names and any(stores)
     assert ("Memory is the narrow exception" in prompt) == enabled
     assert ("(skill_manage)" in prompt) == (enabled and "skill_manage" in names)
+    if enabled and "skill_manage" not in names:
+        assert "belongs in skills" not in prompt
+        assert "workflows belong in skills" not in prompt
+        assert "responsibility packages or connection manuals" in prompt
     if enabled and not stores[0]:
         assert "never target='memory'" in prompt
 
@@ -911,3 +915,13 @@ class TestConversationStartedTwoLine:
         vol = self._volatile(agent)
         assert "Conversation started:" not in vol
         assert "as of the last context rebuild" not in vol
+
+
+@pytest.mark.parametrize("platform", ["cli", "tui"])
+def test_local_scheduling_hint_uses_responsibility_contract(platform, monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    prompt = build_system_prompt(_make_agent(platform=platform, skip_context_files=True))
+    assert "cronjob" not in prompt
+    assert "deliver=" not in prompt
+    assert "report" in prompt
+    assert "responsibility" in prompt

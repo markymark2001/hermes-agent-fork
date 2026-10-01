@@ -25,7 +25,12 @@ Full reference: https://hermes-agent.nousresearch.com/docs/user-guide/configurat
 
 ### Toolsets
 
-Enable/disable via `hermes tools` (interactive) or `hermes tools enable/disable NAME`.
+Enable/disable eligible toolsets via `hermes tools` (interactive) or `hermes tools enable/disable NAME`.
+The table below describes native administration, not the tools available to this
+fork's model. Skills, standalone scheduling, clarification, computer use, TTS,
+Kanban and other tools outside the employee surface remain excluded regardless
+of these settings. The current model schemas are authoritative. Use responsibility
+packages for automation and connection manuals for service procedures.
 Full enumeration: `TOOLSETS` dict in `toolsets.py` (`_HERMES_CORE_TOOLS` is the default bundle most platforms inherit).
 
 | Toolset | What it provides |

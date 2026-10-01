@@ -15,11 +15,10 @@ hermes [flags] [command]        (no subcommand = interactive chat)
   --resume, -r SESSION      Resume session by ID or title
   --continue, -c [NAME]     Resume by name, or most recent session
   --worktree, -w            Isolated git worktree mode (parallel agents)
-  --skills, -s SKILL        Preload skills (comma-separate or repeat)
   --profile, -p NAME        Use a named profile
   --yolo                    Skip dangerous command approval
   --tui / --cli             Force the Ink TUI / classic REPL
-  --ignore-rules            Skip AGENTS.md/SOUL.md/memory/skill injection
+  --ignore-rules            Skip AGENTS.md/SOUL.md/memory injection
   --safe-mode               Disable ALL customizations (troubleshooting)
   --pass-session-id         Include session ID in system prompt
 ```
@@ -49,18 +48,15 @@ hermes doctor [--fix]       Check dependencies and config
 hermes status [--all]       Component status
 ```
 
-### Tools & Skills
+### Tools
 
 ```
 hermes tools [list|enable NAME|disable NAME]   Per-platform toolsets (curses UI with no args)
-
-hermes skills list|browse|search QUERY|inspect ID
-hermes skills install ID    Hub identifier OR a direct https://…/SKILL.md URL
-hermes skills config        Enable/disable skills per platform
-hermes skills check|update|uninstall|publish PATH
-hermes skills tap add REPO  Add a GitHub repo as a skill source
-hermes bundles              Skill bundles (one /<name> alias loads several skills)
 ```
+
+Skills are disabled in this fork. Use responsibility packages for owned work
+and connection manuals for service procedures. Native administration remains
+available, but tool settings cannot enable tools excluded by the fork.
 
 ### MCP Servers
 
@@ -144,7 +140,6 @@ Plugin- and provider-supplied subcommands (e.g. `hermes photon setup`) only appe
 |---|---|
 | Config options | `hermes config edit` · [Configuration docs](https://hermes-agent.nousresearch.com/docs/user-guide/configuration) |
 | Tools / toolsets | `hermes tools list` · [Tools reference](https://hermes-agent.nousresearch.com/docs/reference/tools-reference) |
-| Skills catalog | `hermes skills browse` · [Skills catalog](https://hermes-agent.nousresearch.com/docs/reference/skills-catalog) |
 | Provider setup | `hermes model` · [Providers guide](https://hermes-agent.nousresearch.com/docs/integrations/providers) |
 | Env variables | `hermes config env-path` · [Env vars reference](https://hermes-agent.nousresearch.com/docs/reference/environment-variables) |
 | Gateway logs | `~/.hermes/logs/gateway.log` (or `hermes logs`) |

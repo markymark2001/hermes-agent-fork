@@ -9,6 +9,10 @@
 Keep the approved model tools and configured MCP. Disable skills in agent
 loading/invocation, curator and sync. Hide selected dashboard/TUI/desktop
 controls while retaining native CLI, backend APIs and configuration semantics.
+Model-facing instructions must not recommend disabled skills or the removed
+`cronjob` tool. Route task knowledge to responsibilities/connection manuals and
+automation to responsibility schedules. Adapt wording in native prompt owners;
+do not add a post-processing layer or change warm-session prompts.
 
 ## Reconciliation
 

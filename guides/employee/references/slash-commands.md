@@ -53,25 +53,24 @@ it. New commands land often; `/help` in-session is always authoritative.
 /codex-runtime [auto|codex_app_server] Codex runtime toggle
 ```
 
-### Tools & Skills
+### Tools
+
+Skills, bundles and skill learning are disabled in this fork. Native administration
+commands below do not override the fork's model-tool exclusions.
+
 ```
 /tools [list|enable|disable] Manage tools (CLI)
 /toolsets                List toolsets (CLI)
-/skills                  Search/install/manage skills (CLI)
-/bundles                 List skill bundles (/<name> loads several skills)
-/learn <source>          Learn a reusable skill from dirs/URLs/this chat
 /memory [pending|approve|reject] Review pending memory writes / approval gate
 /pet [toggle|list|<slug>] Petdex mascot control (CLI)
 /hatch [description]     Generate a new pet from a description (CLI)
 /cron [sub]              Manage scheduled tasks (CLI)
 /suggestions (/suggest)  Review suggested automations
 /blueprint (/bp) [name]  Set up an automation from a blueprint
-/curator [sub]           Skill maintenance (status, run, pin, archive, …)
 /kanban [sub]            Multi-profile collaboration board
 /moa <prompt>            One prompt through the Mixture-of-Agents preset
 /reload                  Reload .env into the running session (CLI)
 /reload-mcp              Reload MCP servers
-/reload-skills           Re-scan skills directory
 /browser [connect|status] CDP connection to your live browser (CLI)
 /plugins                 List plugins (CLI)
 ```
